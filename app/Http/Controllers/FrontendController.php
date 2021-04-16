@@ -77,9 +77,8 @@ class FrontendController extends Controller
         Post::where('post_slug',$post_slug)->update(['views'=>$views + 1]);
         $publikasi = Publikasi::where('status','1')->get();
         $latest = Post::where('status', '1')->orderBy('id', 'desc')->get();
-        $comment = Coment::count('comment');
 
-        return view ('frontend.post', compact('data', 'latest', 'publikasi', 'comment'));
+        return view ('frontend.post', compact('data', 'latest', 'publikasi'));
     }
 
     public function comment(Request $request){

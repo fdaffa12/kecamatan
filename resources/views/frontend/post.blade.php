@@ -63,7 +63,7 @@
                         </div>
                     </div>
                 <div class="blog-comments">
-						<h4>Comments ({{$comment}})</h4>
+						<h4>Comments</h4>
                         @foreach ($data->comments as $row)
 						<div id="comment-blog">
 							<ul class="comment-list">
