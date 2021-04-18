@@ -22,6 +22,7 @@ use App\StatPerkawinan;
 use App\StatGoldarah;
 use App\StatAgama;
 use App\Coment;
+use App\Contact;
 
 
 class FrontendController extends Controller
@@ -95,6 +96,43 @@ class FrontendController extends Controller
             'username' => $request->username,
             'comment' => $request->comment
         ]);
+        return redirect()->back()->with('success', 'Comment Added');
+    }
+
+    public function contact(){
+        $data = Contact::whereNull('parent_id')->orderBy('id', 'desc')->get();
+        return view ('frontend.contact', compact('data'));
+    }
+
+    public function contactPost(Request $request){
+        //VALIDASI DATA YANG DITERIMA
+        $request->validate([
+            'nama' => 'required',
+            'pekerjaan' => 'required',
+            'phone' => 'required',
+            'email' => 'required',
+            'comment' => 'required'
+        ]);
+
+        $data['nama'] = $request->nama;
+        //JIKA PARENT ID TIDAK KOSONG, MAKA AKAN DISIMPAN IDNYA, SELAIN ITU NULL
+        $data['parent_id'] = $request->parent_id != '' ? $request->parent_id:NULL;
+        $data['pekerjaan'] = $request->pekerjaan;
+        $data['phone'] = $request->phone;
+        $data['email'] = $request->email;
+        $data['comment'] = $request->comment;
+        $data['created_at'] = date('Y-m-d H:i:s');
+        $data['updated_at'] = date('Y-m-d H:i:s');
+
+        //cek poto
+        $file = $request->file('image');
+        if($file){
+            $file->move('uploads',$file->getClientOriginalName());
+            $data['image'] = 'uploads/'.$file->getClientOriginalName();
+        }
+
+        Contact::insert($data);
+
         return redirect()->back()->with('success', 'Comment Added');
     }
 
@@ -226,9 +264,5 @@ class FrontendController extends Controller
         $publikasi = Publikasi::where('status','1')->get();
         $latest = Post::where('status', '1')->orderBy('id', 'desc')->get();
         return view ('frontend.agama', compact('agama', 'pria', 'perempuan', 'total', 'publikasi', 'latest'));
-    }
-
-    public function contact(){
-        return view ('frontend.contact');
     }
 }

@@ -13,32 +13,100 @@
             </div><!-- end title -->
 
             <div class="row">
-                <div class="col-xl-6 col-md-12 col-sm-12">
-                    <div class="contact_form">
-                        <div id="message"></div>
-                        <form id="contactform" class="" action="contact.php" name="contactform" method="post">
-                            <div class="row row-fluid">
-                                <div class="col-lg-6 col-md-6 col-sm-6">
-                                    <input type="text" name="first_name" id="first_name" class="form-control" placeholder="First Name">
+                <div class="col-xl-12 col-md-12 col-sm-12">
+                    <div class="comments-form" style="padding-top:20px;">
+                        <h4>Leave a comment</h4>
+                        <div class="comment-form-main">
+                            <form action="{{ url('/contact-post') }}" method="post" enctype="multipart/form-data">
+                                <div class="row">
+                                    @csrf
+                                    <input type="hidden" name="parent_id" id="parent_id" class="form-control">
+                                    <div class="col-md-4">
+                                        <div class="form-group">
+                                            <input type="text" class="form-control" name="nama" placeholder="Nama">
+                                            @error('nama')
+                                            <strong class="text-danger">{{$message}}</strong>
+                                            @enderror
+                                        </div>
+                                    </div>
+                                    <div class="col-md-4">
+                                        <div class="form-group">
+                                            <input type="text" class="form-control" name="pekerjaan" placeholder="Pekerjaan">
+                                            @error('pekerjaan')
+                                            <strong class="text-danger">{{$message}}</strong>
+                                            @enderror
+                                        </div>
+                                    </div>
+                                    <div class="col-md-4">
+                                        <div class="form-group">
+                                            <input type="number" class="form-control" name="phone" placeholder="No Handpohone">
+                                            @error('phone')
+                                            <strong class="text-danger">{{$message}}</strong>
+                                            @enderror
+                                        </div>
+                                    </div>
+                                    <div class="col-md-4">
+                                        <div class="form-group">
+                                            <input type="email" class="form-control" name="email" placeholder="Email">
+                                            @error('email')
+                                            <strong class="text-danger">{{$message}}</strong>
+                                            @enderror
+                                        </div>
+                                    </div>
+                                    <div class="col-md-4">
+                                        <div class="form-group">
+                                            <input class="form-control" type="file" name="image">
+                                            @error('image')
+                                            <strong class="text-danger">{{$message}}</strong>
+                                            @enderror
+                                        </div>
+                                    </div>
+                                    <div class="col-md-12">
+                                        <div class="form-group">
+                                            <textarea class="form-control" name="comment" placeholder="Message" id="commenter-message" cols="30" rows="2"></textarea>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-12 post-btn">
+                                        <button class="hover-btn-new orange"><span>Post Comment</span></button>
+                                    </div>
                                 </div>
-                                <div class="col-lg-6 col-md-6 col-sm-6">
-                                    <input type="text" name="last_name" id="last_name" class="form-control" placeholder="Last Name">
-                                </div>
-                                <div class="col-lg-6 col-md-6 col-sm-6">
-                                    <input type="email" name="email" id="email" class="form-control" placeholder="Your Email">
-                                </div>
-                                <div class="col-lg-6 col-md-6 col-sm-6">
-                                    <input type="text" name="phone" id="phone" class="form-control" placeholder="Your Phone">
-                                </div>
-                                <div class="col-lg-12 col-md-12 col-sm-12">
-                                    <textarea class="form-control" name="comments" id="comments" rows="6" placeholder="Give us more details.."></textarea>
-                                </div>
-                                <div class="text-center pd">
-                                    <button type="submit" value="SEND" id="submit" class="btn btn-light btn-radius btn-brd grd1 btn-block">Get a Quote</button>
-                                </div>
-                            </div>
-                        </form>
+                            </form>
+                        </div>
                     </div>
+                    <div class="blog-comments">
+						<h4>Comments</h4>
+                        @foreach ($data as $row)
+						<div id="comment-blog">
+							<ul class="comment-list">
+								<li class="comment">
+                                    <div class="avatar"><img alt="" src="{{asset($row->image)}}" class="avatar"></div>
+									<div class="contact-container">
+										<h5 class="comment-author"><a href="#">{{ $row->nama }}</a></h5>
+										<div class="comment-meta">
+											<a href="#" class="comment-date link-style1">{{$row->created_at->diffForHumans()}}</a>
+										</div>
+										<div class="comment-body">
+											<p>{{ $row->comment }}</p>
+										</div>
+									</div>
+                                    @foreach ($row->child as $val) 
+									<ul class="children">
+										<li class="comment">
+											<div class="comment-container">
+												<h5 class="comment-author"><a href="#">{{ $val->nama }}</a></h5>
+												<div class="comment-meta"><a href="#" class="comment-date link-style1">{{$val->created_at->diffForHumans()}}</a></div>
+												<div class="comment-body">
+													<p>{{ $val->comment }}</p>
+												</div>
+											</div>
+										</li>
+									</ul>
+                                    @endforeach
+								</li>
+							</ul>
+						</div>
+                        @endforeach
+					</div>
                 </div><!-- end col -->
 				<div class="col-xl-6 col-md-12 col-sm-12">
 					<div class="map-box">

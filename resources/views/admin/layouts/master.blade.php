@@ -238,6 +238,11 @@
           </ul>
         </li>
         <li>
+          <a href="{{route('message.index')}}">
+            <i class="fa fa-gear"></i> <span>Massage</span>
+          </a>
+        </li>
+        <li>
           <a href="{{route('setting.index')}}">
             <i class="fa fa-gear"></i> <span>Setting</span>
           </a>

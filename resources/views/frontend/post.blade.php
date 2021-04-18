@@ -1,7 +1,7 @@
 @extends('frontend.master')
 @section('publikasi') active @endsection
 @section ('title')
-<title>{{$data->judul}}</title>
+<title>{{$data->post_title}}</title>
 @stop
 @section ('content')
 
@@ -24,7 +24,7 @@
                                         @endif</a></span>
 							</div>
 							<div class="blog-title">
-								<h2><a href="#" title="">{{$data->judul}}</a></h2>
+								<h2><a href="#" title="">{{$data->post_title}}</a></h2>
 							</div>
 							<div class="blog-desc">
 								<p>{!! $data->description !!}</p>
@@ -62,7 +62,7 @@
                             </form>
                         </div>
                     </div>
-                <div class="blog-comments">
+                    <div class="blog-comments">
 						<h4>Comments</h4>
                         @foreach ($data->comments as $row)
 						<div id="comment-blog">

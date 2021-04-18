@@ -177,6 +177,11 @@ Route::group(['middleware'=>'admin'],function(){
     Route::get('admin/draft-agama/{agama_id}', 'Admin\StatistikController@draftAgama');
     Route::get('admin/publish-agama/{agama_id}', 'Admin\StatistikController@publishAgama');
 
+    //contact
+    Route::get('admin/contact', 'Admin\ContactController@index')->name('message.index');
+    Route::get('admin/reply-message/{message_id}', 'Admin\ContactController@replyMessage');
+    Route::get('admin/delete-message/{message_id}', 'Admin\ContactController@destroyMessage');
+    Route::post('admmin/reply-store', 'Admin\ContactController@storeReply')->name('reply.message');
 
 });
 
@@ -200,4 +205,5 @@ Route::get('perkawinan', 'FrontendController@perkawinan');
 Route::get('goldarah', 'FrontendController@goldarah');
 Route::get('agama', 'FrontendController@agama');
 Route::get('contact', 'FrontendController@contact');
+Route::post('/contact-post', 'FrontendController@contactPost');
 Route::post('/comment', 'FrontendController@comment');
