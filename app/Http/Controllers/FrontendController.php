@@ -170,7 +170,7 @@ class FrontendController extends Controller
 
     public function search(Request $request){
 		$query = $request->input('query');
-		$posts = Post::where('post_title', 'LIKE', "%$query%")->orderby('id','DESC')->paginate(10);
+		$posts = Post::where('post_title', 'LIKE', "%$query%")->where('status', 1)->orderby('id','DESC')->paginate(10);
 		return view('frontend.show', compact('posts'));
 	}
 

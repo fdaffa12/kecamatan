@@ -8,8 +8,8 @@
 <div id="contact" class="section wb">
         <div class="container">
             <div class="section-title text-center">
-                <h3>Need Help? Sure we are Online!</h3>
-                <p class="lead">Let us give you more details about the special offer website you want us. Please fill out the form below. <br>We have million of website owners who happy to work with us!</p>
+                <h3>Ada Pertanyaan? Tentu kami akan membantu menjawabnya!</h3>
+                <p class="lead">Silahkan mengisi fasilitas komunikasi Kontak Kami. Mohon masukan dan pertanyaan disampaikan secara bijak dengan kata-kata yang baik. Seluruh komentar yang masuk akan kami moderasi terlebih dahulu sebelum ditampilkan. Komentar yang mengandung unsur sara, hoax, pornografi, spam, ujaran kebencian, atau link tidak bermanfaat akan kami hapus.</p>
             </div><!-- end title -->
 
             <div class="row">
@@ -92,8 +92,9 @@
                                     @foreach ($row->child as $val) 
 									<ul class="children">
 										<li class="comment">
+                                        <div class="avatar"><img alt="" src="{{asset('uploads')}}/img_avatar3.png" class="avatar"></div>
 											<div class="comment-container">
-												<h5 class="comment-author"><a href="#">{{ $val->nama }}</a></h5>
+												<h5 class="comment-author"><a href="#">(Admin) {{ $val->nama }}</a></h5>
 												<div class="comment-meta"><a href="#" class="comment-date link-style1">{{$val->created_at->diffForHumans()}}</a></div>
 												<div class="comment-body">
 													<p>{{ $val->comment }}</p>

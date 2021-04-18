@@ -93,7 +93,7 @@
         </li>
         <li class="treeview">
           <a href="#">
-            <i class="fa fa-laptop"></i>
+            <i class="fa fa-paperclip"></i>
             <span>Pages</span>
             <span class="pull-right-container">
               <i class="fa fa-angle-left pull-right"></i>
@@ -106,7 +106,7 @@
         </li>
         <li class="treeview">
           <a href="#">
-            <i class="fa fa-laptop"></i>
+            <i class="fa fa-hashtag"></i>
             <span>Publikasi</span>
             <span class="pull-right-container">
               <i class="fa fa-angle-left pull-right"></i>
@@ -133,7 +133,7 @@
         </li>
         <li class="treeview">
           <a href="#">
-            <i class="fa fa-laptop"></i>
+            <i class="fa fa-globe"></i>
             <span>Potensi</span>
             <span class="pull-right-container">
               <i class="fa fa-angle-left pull-right"></i>
@@ -146,7 +146,7 @@
         </li>
         <li class="treeview">
           <a href="#">
-            <i class="fa fa-laptop"></i>
+            <i class="fa fa-key"></i>
             <span>Peten</span>
             <span class="pull-right-container">
               <i class="fa fa-angle-left pull-right"></i>
@@ -159,7 +159,7 @@
         </li>
         <li class="treeview">
           <a href="#">
-            <i class="fa fa-laptop"></i>
+            <i class="fa fa-download"></i>
             <span>Unduhan</span>
             <span class="pull-right-container">
               <i class="fa fa-angle-left pull-right"></i>
@@ -172,7 +172,7 @@
         </li>
         <li class="treeview">
           <a href="#">
-            <i class="fa fa-laptop"></i>
+            <i class="fa fa-users"></i>
             <span>Struktur Organisasi</span>
             <span class="pull-right-container">
               <i class="fa fa-angle-left pull-right"></i>
@@ -185,7 +185,7 @@
         </li>
         <li class="treeview">
           <a href="#">
-            <i class="fa fa-laptop"></i>
+            <i class="fa fa-picture-o"></i>
             <span>Galleri</span>
             <span class="pull-right-container">
               <i class="fa fa-angle-left pull-right"></i>
@@ -197,7 +197,7 @@
         </li>
         <li class="treeview">
           <a href="#">
-            <i class="fa fa-laptop"></i>
+            <i class="fa fa-video-camera"></i>
             <span>Video</span>
             <span class="pull-right-container">
               <i class="fa fa-angle-left pull-right"></i>
@@ -210,7 +210,7 @@
         </li>
         <li class="treeview">
           <a href="#">
-            <i class="fa fa-laptop"></i>
+            <i class="fa fa-calendar"></i>
             <span>Agenda</span>
             <span class="pull-right-container">
               <i class="fa fa-angle-left pull-right"></i>
@@ -223,7 +223,7 @@
         </li>
         <li class="treeview">
           <a href="#">
-            <i class="fa fa-laptop"></i>
+            <i class="fa fa-database"></i>
             <span>Statistik</span>
             <span class="pull-right-container">
               <i class="fa fa-angle-left pull-right"></i>
@@ -239,7 +239,7 @@
         </li>
         <li>
           <a href="{{route('message.index')}}">
-            <i class="fa fa-gear"></i> <span>Massage</span>
+            <i class="fa fa-comments"></i> <span>Massage</span>
           </a>
         </li>
         <li>
